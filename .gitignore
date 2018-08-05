@@ -1,2 +1,4 @@
 .DS_Store
 TwitterAPIDetails.py
+__pycache__
+TwitterUpdateLists_Data
