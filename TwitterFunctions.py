@@ -183,10 +183,8 @@ def removeBlock(userID):
 
 def readFile(fileName):
     try:
-        fileData = []
         with open(fileName, 'r') as file:
-            for eachLine in file:
-                fileData.append(eachLine)
+            fileData = file.read().splitlines()
     except:
         fileData = []
     return fileData
