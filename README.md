@@ -18,7 +18,7 @@ There may be other Python modules I'm using which aren't part of the standard in
 
 ## API Details File
 
-I use a seperate file for my API details which, for obvious reasons, I exclued from my public repository. It therefore needs to be created and populated with your own API credentials.
+I use a seperate file for my API details which, for obvious reasons, I exclude from my public repository. It therefore needs to be created and populated with your own API credentials.
 
 The file is called TwitterAPIDetails.py and contains the following:
 
