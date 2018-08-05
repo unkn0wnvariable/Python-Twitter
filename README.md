@@ -4,7 +4,7 @@
 
 ## Description
 
-This started as me playing with using Twitter from the cli of a Raspberry Pi, and expanded from here into whether I could use Python and the API to do some semi-automated management of lists. The plan was to do more, and I may well do one day, but for now I haven't had the time.
+This started as me playing with using Twitter from the CLI of a Raspberry Pi, and expanded from there into whether I could use Python and the API to do some semi-automated management of lists. The plan was to do more, and I may well do one day, but for now I haven't had the time.
 
 I've now decided to tidy up my code and make it public, since others may find it useful.
 
