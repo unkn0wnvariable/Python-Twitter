@@ -106,6 +106,7 @@ def getBlockedIDs():
         pageCursor = pageResults['next_cursor']
     return allResults
 
+
 # functions to find things within retrived data
 
 def findFriendsNotFollowing(friends,followers):
@@ -176,6 +177,7 @@ def removeListMembers(allMemberIDs,listID,userID,count):
 
 def removeBlock(userID):
 	twitter.destroy_block(user_id=userID)
+
 
 # Functions to read and write files
 
