@@ -16,6 +16,20 @@ You can install Twython using `pip install twython`.
 
 There may be other Python modules I'm using which aren't part of the standard install, I'll track them down and add them here as I go.
 
+## API Details File
+
+I use a seperate file for my API details which, for obvious reasons, I exclued from my public repository. It therefore needs to be created and populated with your own API credentials.
+
+The file is called TwitterAPIDetails.py and contains the following:
+
+```Python
+# Twitter API and Access keys
+apiKey = ''
+apiSecret = ''
+accessToken = ''
+accessTokenSecret = ''
+```
+
 ## Disclaimer
 
 All code provided as is without warranty of any kind, use at your own risk.
