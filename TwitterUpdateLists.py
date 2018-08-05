@@ -1,31 +1,22 @@
+# Import the modules we need
 from __future__ import print_function
-from MyTwitterFunctions import myID,getFriendIDs,getFollowerIDs,getListingMeIDs,findListMatches,findFriendsNotFollowing,findFollowersNotFollowing,readBinaryFile,findListDifferences,getUserLists,findListID,getListMemberIDs,addListMembers,removeListMembers,writeBinaryFile
 import os.path
 
+# Import those of my functions which are being used here
+from TwitterFunctions import myID,getFriendIDs,getFollowerIDs,getListingMeIDs,findListMatches,findFriendsNotFollowing,findFollowersNotFollowing,readBinaryFile,findListDifferences,getUserLists,findListID,getListMemberIDs,addListMembers,removeListMembers,writeBinaryFile
+
+# Where should the script store data files?
 dataFolder = './TwitterUpdateLists_Data/'
 
+# What are the excluded ID files called?
+deletedAccountIDsName = dataFolder + 'deleted_ids.txt'
+protectedAccountIDsName = dataFolder + 'protected_ids.txt'
+
+# What should the previous run data files be called?
 friendIDsFileName = dataFolder + 'friend_ids.dat'
 followerIDsFileName = dataFolder + 'follower_ids.dat'
 
-deletedAccountIDsPath = dataFolder + 'deleted_ids.txt'
-protectedAccountIDsPath = dataFolder + 'protected_ids.txt'
-
-if os.path.exists(deletedAccountIDsPath):
-	deletedAccountIDsFile = open(deletedAccountIDsPath, 'r')
-	deletedAccountIDs = deletedAccountIDsFile.readlines()
-	deletedAccountIDsFile.close()
-else:
-	deletedAccountIDs = ''
-
-if os.path.exists(protectedAccountIDsPath):
-	protectedAccountIDsFile = open(protectedAccountIDsPath, 'r')
-	protectedAccountIDs = protectedAccountIDsFile.readlines()
-	deletedAccountIDsFile.close()
-else:
-	protectedAccountIDs = ''
-
-excludedIDs = deletedAccountIDs + protectedAccountIDs
-
+# Set up the names, descriptions and modes for the lists to be created, if they don't already exist.
 mutualListName = 'Mutual Following'
 mutualListDescription = 'List of mutual followings.'
 mutualListMode = 'private'
@@ -61,6 +52,28 @@ newFollowersListMode = 'private'
 lostFollowersListName = 'Lost Followers'
 lostFollowersListDescription = 'List of accounts that have stopped following me.'
 lostFollowersListMode = 'private'
+
+
+# Read in accounts to be excluded from the exculsion files, if they exist.
+
+if os.path.exists(deletedAccountIDsName):
+	deletedAccountIDsFile = open(deletedAccountIDsName, 'r')
+	deletedAccountIDs = deletedAccountIDsFile.readlines()
+	deletedAccountIDsFile.close()
+else:
+	deletedAccountIDs = ''
+
+if os.path.exists(protectedAccountIDsName):
+	protectedAccountIDsFile = open(protectedAccountIDsName, 'r')
+	protectedAccountIDs = protectedAccountIDsFile.readlines()
+	deletedAccountIDsFile.close()
+else:
+	protectedAccountIDs = ''
+
+excludedIDs = deletedAccountIDs + protectedAccountIDs
+
+
+# Lets start doing some work
 
 print('\nRetriving User IDs...\n')
 
