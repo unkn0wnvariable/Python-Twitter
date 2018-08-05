@@ -3,12 +3,15 @@ from __future__ import print_function
 import os.path
 
 # Import those of my functions which are being used here
-from TwitterFunctions import myID,getFriendIDs,getFollowerIDs,getListingMeIDs,findListMatches,findFriendsNotFollowing,findFollowersNotFollowing,readBinaryFile,findListDifferences,getUserLists,findListID,getListMemberIDs,addListMembers,removeListMembers,writeBinaryFile
+from TwitterFunctions import readFile,myID,getFriendIDs,getFollowerIDs,getListingMeIDs,findListMatches,findFriendsNotFollowing,findFollowersNotFollowing,readBinaryFile,findListDifferences,getUserLists,findListID,getListMemberIDs,addListMembers,removeListMembers,writeBinaryFile
 
 # Where should the script store data files?
 dataFolder = './TwitterUpdateLists_Data/'
 
 # What are the excluded ID files called?
+# These two files are simple lists of numeric ID's for accounts which cause problems either because they've been
+# deactivated and so cause an error, or are protected and so can't be added to lists.
+# This was a quick and simple fix, there's probably a better way of doing it on the fly.
 deletedAccountIDsName = dataFolder + 'deleted_ids.txt'
 protectedAccountIDsName = dataFolder + 'protected_ids.txt'
 
@@ -55,21 +58,10 @@ lostFollowersListMode = 'private'
 
 
 # Read in accounts to be excluded from the exculsion files, if they exist.
-
-if os.path.exists(deletedAccountIDsName):
-	deletedAccountIDsFile = open(deletedAccountIDsName, 'r')
-	deletedAccountIDs = deletedAccountIDsFile.readlines()
-	deletedAccountIDsFile.close()
-else:
-	deletedAccountIDs = ''
-
-if os.path.exists(protectedAccountIDsName):
-	protectedAccountIDsFile = open(protectedAccountIDsName, 'r')
-	protectedAccountIDs = protectedAccountIDsFile.readlines()
-	deletedAccountIDsFile.close()
-else:
-	protectedAccountIDs = ''
-
+# Values read in from files come as strings so we're also converting to integers.
+excludedIDs = []
+deletedAccountIDs = [int(deletedAccountID) for deletedAccountID in readFile(deletedAccountIDsName)]
+protectedAccountIDs = [int(protectedAccountID) for protectedAccountID in readFile(protectedAccountIDsName)]
 excludedIDs = deletedAccountIDs + protectedAccountIDs
 
 
