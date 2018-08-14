@@ -1,5 +1,5 @@
 from __future__ import print_function
-from MyTwitterFunctions import *
+from TwitterFunctions import twitter
 
 blocks = twitter.list_blocks(include_entities='False', skip_status='True')
 
