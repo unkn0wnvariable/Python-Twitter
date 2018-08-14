@@ -3,7 +3,7 @@ from twython import Twython
 import pickle
 import time
 
-from TwitterAPIDetails import *
+from TwitterAPIDetails import apiKey,apiSecret,accessToken,accessTokenSecret
 
 # Connect to Twitter via Twython library
 twitter = Twython(apiKey, apiSecret, accessToken, accessTokenSecret)
