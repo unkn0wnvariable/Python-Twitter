@@ -6,7 +6,7 @@ import os.path
 from TwitterFunctions import readFile,myID,getFriendIDs,getFollowerIDs,getListingMeIDs,findListMatches,findFriendsNotFollowing,findFollowersNotFollowing,readBinaryFile,findListDifferences,getUserLists,findListID,getListMemberIDs,addListMembers,removeListMembers,writeBinaryFile
 
 # Where should the script store data files?
-dataFolder = './TwitterUpdateLists_Data/'
+dataFolder = './UpdateLists_Data/'
 
 # What are the excluded ID files called?
 # These two files are simple lists of numeric ID's for accounts which cause problems either because they've been
