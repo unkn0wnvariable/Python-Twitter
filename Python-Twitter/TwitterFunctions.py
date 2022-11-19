@@ -40,6 +40,16 @@ def getFriendIDs(userID):
         pageCursor = pageResults['next_cursor']
     return allResults
 
+def getFollowersList(userID,pageCount):
+    allResults = []
+    pageCursor = -1
+    while(pageCursor):
+        pageResults = twitter.get_followers_list(user_id=userID,cursor=pageCursor,count=pageCount)
+        for eachItem in pageResults['users']:
+            allResults.append(eachItem)
+        pageCursor = pageResults['next_cursor']
+    return allResults
+
 def getFriendsList(userID,pageCount):
     allResults = []
     pageCursor = -1
